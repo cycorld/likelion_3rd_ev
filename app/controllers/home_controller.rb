@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def detail
   end
+
+  def upload
+  end
 end
