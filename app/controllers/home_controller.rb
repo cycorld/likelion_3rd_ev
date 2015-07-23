@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, only: [:upload, :create]
   def index
     @tvs = Tv.all
     @banner = @tvs.sample
