@@ -1,3 +1,6 @@
+.on {
+  opacity: 1 !important;
+}
 .star-rating {
   font-size: 0;
   white-space: nowrap;
