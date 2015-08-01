@@ -2,7 +2,7 @@
   <img src="<%=@pro.url%>">
   <h1><%=@pro.title%></h1>
   <p class="lead"><%=@pro.intro%></p>
-  <p id="count">4.2 점 (250 명)</p>
+  <p id="count"><%=@pro.rating.round(1)%> 점 (<%=@pro.comments.count%> 명)</p>
   <%= form_tag("/home/ev", method: "post") do %>
     <input type="hidden" name="id" value="<%=@pro.id%>">
     <span class="star-rating small">
