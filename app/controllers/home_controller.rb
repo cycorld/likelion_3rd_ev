@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:upload, :create]
+  before_action :authenticate_user!, only: [:upload, :create, :ev]
   def index
     @tvs = Tv.all
     @banner = @tvs.sample
@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   def ev
+    Comment.create(user_id: current_user.id, tv_id: params[:id], score: params[:rating].to_i, comment: params[:msg])
     redirect_to "/home/detail/#{params[:id]}"
   end
 end
