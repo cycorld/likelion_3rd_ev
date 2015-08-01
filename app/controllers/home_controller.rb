@@ -18,5 +18,6 @@ class HomeController < ApplicationController
   end
 
   def ev
+    redirect_to "/home/detail/#{params[:id]}"
   end
 end
