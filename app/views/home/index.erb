@@ -13,7 +13,7 @@
     <% end %>
   </span>
   <p id="count"><%=@banner.rating.round(1)%> 점 (<%=@banner.comments.count%> 명)</p>
-  <p><a class="btn btn-sm btn-success" href="/home/detail/<%=@banner.id%>" role="button">평가하기</a></p>
+  <p><a class="btn btn-sm btn-success" href="/home/detail/<%=@banner.id%>" role="button">자세히 보기</a></p>
 </div>
 <!-- 배너끝 -->
 
@@ -26,14 +26,16 @@
     <img src="<%=t.url%>" class="img-thumbnail" width="320">
     <p><%=t.intro%></p>
     <span class="star-rating small">
-      <i></i>
-      <i></i>
-      <i class="on"></i>
-      <i></i>
-      <i></i>
+      <% 1.upto(5) do |i| %>
+        <% if i == t.rating.round(0) %>
+          <i class="on"></i>
+        <% else %>
+          <i></i>
+        <% end %>
+      <% end %>
     </span>
-    <p id="count">4.2 점 (250 명)</p>
-    <p><a class="btn btn-sm btn-success" href="/home/detail/<%=t.id%>" role="button">평가하기</a></p>
+    <p id="count"><%=t.rating.round(1)%> 점 (<%=t.comments.count%> 명)</p>
+    <p><a class="btn btn-sm btn-success" href="/home/detail/<%=t.id%>" role="button">자세히 보기</a></p>
   </div>
   <% end %>
   <!-- 끝 -->
