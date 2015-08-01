@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def detail
+    @pro = Tv.find(params[:id])
   end
 
   def upload
